@@ -94,3 +94,32 @@ You can easily customize:
 - Add file type restrictions in the HTML
 
 The solution is production-ready and includes proper error handling, logging, and security considerations!
+
+I'll show you the secure ways to configure Azure Storage connection strings in .NET applications.I've created a comprehensive guide for securely configuring Azure Storage! Here are the key takeaways:
+
+## 🎯 Quick Setup for Your Project
+
+### **For Local Development (Easiest & Secure):**
+
+```bash
+# In your project directory
+dotnet user-secrets init
+dotnet user-secrets set "ConnectionStrings:AzureStorage" "YOUR_CONNECTION_STRING_HERE"
+```
+
+That's it! Your connection string is now stored securely outside your project and will never be committed to Git.
+
+### **For Production (Most Secure):**
+
+Use **Managed Identity** - no secrets needed at all! The updated code in the guide will automatically use:
+- Connection strings locally (from User Secrets)
+- Managed Identity in production (Azure)
+
+## 📌 Key Security Points
+
+1. **Never commit secrets to Git** - Use User Secrets or environment variables
+2. **Use Managed Identity in Azure** - No connection strings to manage
+3. **Key Vault for enterprise** - Centralized secret management
+4. **Rotate keys regularly** - Set reminders to update credentials
+
+The guide includes complete code examples, Azure CLI commands, and a comparison table to help you choose the best approach for your needs!
